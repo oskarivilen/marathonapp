@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 
-//import com.example.marathonapp.model.GroupRepository;
+
 import com.example.marathonapp.model.Runner;
 import com.example.marathonapp.model.RunnerRepository;
+import com.example.marathonapp.model.Starterrepository;
+
 import java.util.List;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,7 +28,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class RunnerController {
 	@Autowired
 	private RunnerRepository repository; 
-	
+	@Autowired
+ 	private Starterrepository srepository; 
 	
 	
 	
@@ -41,15 +44,10 @@ public class RunnerController {
     @RequestMapping(value = "/add")
     public String addRunner(Model model){
     	model.addAttribute("runner", new Runner());
-    	//model.addAttribute("groups", grepository.findAll());
+    	model.addAttribute("starters", srepository.findAll());
         return "addrunner";
     }     
     
-    @RequestMapping(value = "/edit", method = RequestMethod.GET)
-    public String editRunner(Long id, Model model){
-    	model.addAttribute("runner", repository.findById(id));
-        return "editRunner";
-    }  
    
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
@@ -63,11 +61,11 @@ public class RunnerController {
     	repository.deleteById(runnerId);
         return "redirect:../runnerlist";
     } 
-   /* @RequestMapping(value = "/modify/{runnerId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/modify/{id}", method = RequestMethod.GET)
     public String modifyRunner(@PathVariable("id") Long runnerId, Model model) {
     	Optional<Runner> runner = repository.findById(runnerId);
     	model.addAttribute("runner", runner);
-    	model.addAttribute("groups", grepository.findAll());
+    	model.addAttribute("starters", srepository.findAll());
         return "modifyrunner"; 
-    }  */
+    }  
 }

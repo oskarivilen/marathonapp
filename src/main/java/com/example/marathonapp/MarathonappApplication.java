@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 
-//import com.example.marathonapp.model.Group;
-//import com.example.marathonapp.model.GroupRepository;
 import com.example.marathonapp.model.Runner;
 import com.example.marathonapp.model.RunnerRepository;
+import com.example.marathonapp.model.Starter;
+import com.example.marathonapp.model.Starterrepository;
 
 
 @SpringBootApplication
@@ -24,15 +24,15 @@ public class MarathonappApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner runnerDemo(RunnerRepository rrepository) {
+	public CommandLineRunner runnerDemo(RunnerRepository rrepository, Starterrepository srepository) {
 		return (args) -> {
 			log.info("save a couple of runners");
 			
-		
-		
+			srepository.save(new Starter("12:00"));
+			srepository.save(new Starter("13:00"));
 			
-			rrepository.save(new Runner(1, "Oskari Vilen", "Jets"));
-			rrepository.save(new Runner(2, "James Corey", "Foxes"));
+			rrepository.save(new Runner(1, "Oskari Vilen", "Jets", srepository.findByStime("12:00").get(0)));
+			rrepository.save(new Runner(2, "James Corey", "Foxes", srepository.findByStime("13:00").get(0)));
 			
 		
 			log.info("fetch all runners");

@@ -3,8 +3,8 @@ package com.example.marathonapp.model;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
-public interface GroupRepository extends CrudRepository<Group, Long> {
+public interface Starterrepository extends CrudRepository<Starter, Long> {
 
-    List<Group> findByStime(String stime);
+    List<Starter> findByStime(String stime);
     
 }

@@ -13,29 +13,29 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 @Entity
-public class Group {
+public class Starter {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long groupid;
-	private String stime;
+	public Long starterid;
+	public String stime;
 	
-	@JsonBackReference
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "starter")
 	private List<Runner> runners;
 	
-	public Group() {}
+	public Starter() {}
 	
-	public Group(String stime) {
+	public Starter(String stime) {
 		super();
 		this.stime = stime;
 	}
 	
-	public Long getGroupid() {
-		return groupid;
+	public Long getStarterId() {
+		return starterid;
 	}
 	
-	public void setGroupId(Long groupid) {
-		this.groupid = groupid;
+	public void setStarterId(Long starterid) {
+		this.starterid = starterid;
 	}
 	
 	public String getStime() {
@@ -56,6 +56,6 @@ public class Group {
 
 	@Override
 	public String toString() {
-		return "Group [groupid=" + groupid + ", stime=" + stime + "]";
+		return "Starter [starterid=" + starterid + ", stime=" + stime + "]";
 	}
 }

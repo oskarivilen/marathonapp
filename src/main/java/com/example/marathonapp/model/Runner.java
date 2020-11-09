@@ -21,17 +21,19 @@ public class Runner {
 	
 	
 
-	
+	 @ManyToOne
+	    @JoinColumn(name = "starterid")
+	    private Starter starter;
 	 
 	
 	 public Runner() {}
 	 
-	 public Runner(long id,String name, String team) {
+	 public Runner(long id,String name, String team, Starter starter) {
 			super();
 			this.id = id;
 			this.name = name;
 			this.team = team;
-			
+			this.starter = starter;
 		
 		}
 	 public Long getId() {
@@ -56,10 +58,20 @@ public class Runner {
 		this.team = team;
 	}
 	
+	public Starter getStarter() {
+		return starter;
+	}
+	
+	public void setStarter(Starter starter) {
+		this.starter = starter;
+	}
 
 	
 	@Override
 	public String toString() {
+		if (this.starter != null)
+	 		return "Runner [id=" + id + ", name=" + name + ", team=" + team + ", starter =" + this.getStarter() +  "]";
+	 		else 
 		
 		return	"Runner [id=" + id + ", name=" + name + ", team=" + team +  "]";
 	}

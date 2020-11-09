@@ -25,9 +25,10 @@
      		<td th:text="${runner.id}"></td>
      		<td th:text="${runner.name}"></td>
      		<td th:text="${runner.team}"></td>
-     		<!-- <td th:text="${runner.group.stime}"></td>  -->
+     		<td th:text="${runner.starter.stime}"></td>
+     		
   				<td ><a class="btn btn-danger" th:href="@{/delete/{id}(id=${runner.id})}" >Delete</a></td>
-  				<td><a class="btn btn-warning" th:href="@{/edit/{runner}(id=${runner.id})}">Edit</a></td>   
+  				<td><a class="btn btn-warning" th:href="@{/modify/{id}(id=${runner.id})}">Edit</a></td>   
 
      	</tr>
       </table>

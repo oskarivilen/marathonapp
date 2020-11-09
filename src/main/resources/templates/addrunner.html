@@ -10,19 +10,19 @@
  	<h1>Add Runner</h1>
  	<div>
  		<form th:object="${runner}" th:action="@{save}" action="#" method="post">
- 		  	<label for="id">Id</label>
- 			<input type="text" id="runnerId" th:field="*{id}" />
- 			<div style="clear: both; display: block; height: 10px;"></div>
+ 		  	
+ 			
  		  	<label for="name">Name</label>
- 			<input type="text" id="name" th:field="*{name}" />
+ 			<input type="text" id="name" th:field="*{Name}" />
  			<div style="clear: both; display: block; height: 10px;"></div>
  		  	<label for="team">Team</label>
- 			<input type="text" th:field="*{team}" />
+ 			<input type="text" th:field="*{Team}" />
  			<div style="clear: both; display: block; height: 10px;"></div>
- 		  	<!--  <label for="grouplist">Group</label>
- 			 <select id="grouplist" th:field="*{group}" class="form-control">
-        			<option th:each="group: ${groups}" th:value="${group.groupid}" th:text="${group.stime}"></option>
-     		</select>-->
+ 		  	 <label for="startlist">Starting time</label>
+ 			 <select id="startlist" th:field="*{starter}" class="form-control">
+        			<option th:each="starter: ${starters}" th:value="${starter.starterid}" th:text="${starter.stime}"></option>
+     		</select>
+     		<div style="clear: both; display: block; height: 10px;"></div>
  			<input type="submit" value="Save"></input>
  		</form>
  	</div>
