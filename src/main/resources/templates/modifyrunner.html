@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+     <title>Runnerlist</title>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ </head>
+ <body>
+ 	<h1>Add Runner</h1>
+ 	<div>
+ 	
+ 	<form th:object="${runner}" th:action="@{../save}" action="#" method="post">
+ 			  	<label for="id">Id</label>
+ 			<input type="text" id="runnerId" th:field="*{id}" readonly="readonly"/>
+ 			<div style="clear: both; display: block; height: 10px;"></div>
+ 		  	<label for="name">Name</label>
+ 			<input type="text" id="name" th:field="*{name}" />
+ 			<div style="clear: both; display: block; height: 10px;"></div>
+ 		  	<label for="team">Team</label>
+ 			<input type="text" id="name" th:field="*{team}" />
+ 			<div style="clear: both; display: block; height: 10px;"></div>
+ 		  	<label for="grouplist">Group</label>
+ 			<!--   <select id="grouplist" th:field="*{group}" class="form-control">
+        			<option th:each="group: ${groups}" th:value="${group.groupid}" th:text="${group.stime}"></option>
+     	
+     		</select>
+     		-->
+ 			<div style="clear: both; display: block; height: 10px;"></div>
+ 			<input type="submit" value="Save"></input>
+ 		</form>
+ 	</div>
+ </body>
+ </html> 
