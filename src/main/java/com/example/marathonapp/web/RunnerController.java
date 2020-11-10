@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import com.example.marathonapp.model.Runner;
 import com.example.marathonapp.model.RunnerRepository;
@@ -32,15 +32,19 @@ public class RunnerController {
  	private Starterrepository srepository; 
 	
 	
+	 @RequestMapping(value="/login")
+     public String login() {	
+         return "login";
+     }	
 	
-	 @RequestMapping(value= {"/", "/runnerlist"})
+	 @RequestMapping(value= {"/runnerlist"})
     public String runnerlist(Model model) {	
         model.addAttribute("runners", repository.findAll());
         return "runnerlist";
     }
 	 
 	// RESTful service to get all runners
-     @RequestMapping(value="/Runners", method = RequestMethod.GET)
+     @RequestMapping(value="/runners", method = RequestMethod.GET)
      public @ResponseBody List<Runner> runnerListRest() {	
          return (List<Runner>) repository.findAll();
      }    
@@ -67,11 +71,14 @@ public class RunnerController {
         return "redirect:runnerlist";
     }    
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteRunner(@PathVariable("id") Long runnerId, Model model) {
     	repository.deleteById(runnerId);
         return "redirect:../runnerlist";
     } 
+    
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/modify/{id}", method = RequestMethod.GET)
     public String modifyRunner(@PathVariable("id") Long runnerId, Model model) {
     	Optional<Runner> runner = repository.findById(runnerId);
