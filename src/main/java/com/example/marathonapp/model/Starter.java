@@ -19,7 +19,7 @@ public class Starter {
 	public Long starterid;
 	public String stime;
 	
-	
+	@JsonBackReference
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "starter")
 	private List<Runner> runners;
 	

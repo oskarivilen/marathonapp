@@ -39,6 +39,17 @@ public class RunnerController {
         return "runnerlist";
     }
 	 
+	// RESTful service to get all runners
+     @RequestMapping(value="/Runners", method = RequestMethod.GET)
+     public @ResponseBody List<Runner> runnerListRest() {	
+         return (List<Runner>) repository.findAll();
+     }    
+
+  // RESTful service to get runner by id
+     @RequestMapping(value="/runner/{id}", method = RequestMethod.GET)
+     public @ResponseBody Optional<Runner> findRunnerRest(@PathVariable("id") Long id) {	
+     	return repository.findById(id);
+     }  
 	
 
     @RequestMapping(value = "/add")

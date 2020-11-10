@@ -23,6 +23,7 @@ public class Runner {
 
 	 @ManyToOne
 	    @JoinColumn(name = "starterid")
+	 @JsonManagedReference
 	    private Starter starter;
 	 
 	
