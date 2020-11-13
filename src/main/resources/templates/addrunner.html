@@ -1,31 +1,40 @@
 <!DOCTYPE HTML>
  <html xmlns:th="http://www.thymeleaf.org">
  <head>
-     <title>RunnerList</title>
+     <title>Sign-Up️</title>
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
  </head>
+
  <body>
- 
- 	<h1>Add Runner</h1>
+ <body style="background-color:#212529;">
+ 	
  	<div>
+ 	  <div class="d-flex justify-content-center">
+     
+      <div class="col-md-4 col-md-offset-4">
+      <br>
+      <br>
+ 	 <h1 style="color:white">My info</h1>
  		<form th:object="${runner}" th:action="@{save}" action="#" method="post">
  		  	
  			
- 		  	<label for="name">Name</label>
- 			<input type="text" id="name" th:field="*{Name}" />
+ 		  	<label style="color:white" for="name">Name</label>
+ 		  	
+ 			<input placeholder="✍️" type="text" class="form-control" id="name" th:field="*{Name}" />
  			<div style="clear: both; display: block; height: 10px;"></div>
- 		  	<label for="team">Team</label>
- 			<input type="text" th:field="*{Team}" />
+ 		  	<label style="color:white" for="team">Team</label>
+ 			<input placeholder="✍️" type="text" class="form-control" th:field="*{Team}" />
  			<div style="clear: both; display: block; height: 10px;"></div>
- 		  	 <label for="startlist">Starting time</label>
- 			 <select id="startlist" th:field="*{starter}" class="form-control">
+ 		  	 <label style="color:white" for="startlist">Starting time</label>
+ 			 <select id="startlist"  th:field="*{starter}" class="form-control">
         			<option th:each="starter: ${starters}" th:value="${starter.starterid}" th:text="${starter.stime}"></option>
      		</select>
      		<div style="clear: both; display: block; height: 10px;"></div>
- 			<input type="submit" value="Save"></input>
+ 			<input type="submit" class="btn btn-info" value="Save"></input>
  		</form>
+ 	</div>
  	</div>
  </body>
  </html> 

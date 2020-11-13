@@ -8,6 +8,10 @@
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
      </head>
      <body>
+      <br>
+ <br>
+ <br>
+ 
      <style>
 body {
   background-image: url(https://images.unsplash.com/photo-1603102859961-64b17d43580d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1778&q=80);
@@ -24,7 +28,7 @@ body {
   <div class="jumbotron">
   <h1 class="display-4">Hello, Runner!</h1>
   <p class="lead">For this years Marathon we have created easy-to-use and secure way to join. 
-  Just create a account and add yourself to the list</p>
+  Just create a account and add yourself to the list.</p>
   
      <div class="alert alert-danger" th:if="${param.error}">
              Invalid username and password.
@@ -33,12 +37,12 @@ body {
              You have been logged out.
          </div>
          <form th:action="@{/login}" method="post">
-             <div><label> User Name : <input type="text" name="username" class="form-control"/> </label></div>
+             <div><label> Username: <input type="text" name="username" class="form-control"/> </label></div>
              <div><label> Password: <input type="password" name="password" class="form-control"/> </label></div>
              <div><input type="submit" value="Sign In" class="btn btn-primary"/></div>
          </form>
   <hr class="my-4">
-  <p>Create a account to Sign-up to marathon</p>
+  <p>Create a account to Sign-up to Marathon.</p>
   <a class="btn btn-success" th:href="@{/signup}">Sign-up</a>
 </div>
 </div>

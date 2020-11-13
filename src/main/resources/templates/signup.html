@@ -7,6 +7,9 @@
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
  </head>
  <body>
+  <br>
+ <br>
+ <br>
   <style>
 body {
   background-image: url(https://images.unsplash.com/photo-1603102859961-64b17d43580d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1778&q=80);
@@ -26,15 +29,15 @@ body {
      <div class="col-md-4">
  		<form th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
  			<div>
- 				<label> Username :<input type="text" th:field="*{username}" class="form-control"/></label>
+ 				<label> Username:<input type="text" th:field="*{username}" class="d-flex justify-content-right"/></label>
  				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
  			</div>
  			<div>
- 				<label> Password :<input type="password" th:field="*{password}" class="form-control"/></label>
+ 				<label> Password :<input type="password" th:field="*{password}" class="d-flex justify-content-center"/></label>
  				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
  			</div>
  			<div>
- 				<label> Re-type Password: <input type="password" th:field="*{passwordCheck}" class="form-control"/></label>
+ 				<label> Re-type Password: <input type="password" th:field="*{passwordCheck}" class="d-flex justify-content-center"/></label>
  				<p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
  			</div>
 

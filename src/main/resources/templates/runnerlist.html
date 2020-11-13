@@ -15,22 +15,25 @@
  <body style="background-color:#212529;">
  <div class="container">
  <br>
- <h1 style="color:white">2021 Helsinki City Marathon Line-up</h1>
+ <h1 style="color:white">🏃‍♂️2021 Helsinki City Marathon Line-up🏃‍♀️</h1>
  	<div class="col-md-4">
- 	
+ 	<br>
  	
  		<h3 style="color:white" th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h3>
- 	<p style="color:white">Add your name, team and starting time to the list</p>
+ 	<br>
+ 	<p style="color:white">Add your name, team and starting time <br>to the list</p>
  	</div>
  	<div class="col-md-4" style="padding:20px 0">
- 		<form th:action="@{/logout}" method="post">
- 			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
- 		</form>
+ 		
+ 		&nbsp;&nbsp;<a class="btn btn-success" href="/add"  >Add Runner</a>   
+ 			
+ 		
  		</div>
  	
      <table class ="table table-striped table-dark">
  		<tr>
- 		    <th>Id</th>
+ 		   
+
  		    <th>Name</th>
  		    <th>Team</th>
  			<th>Starting time</th>
@@ -41,7 +44,8 @@
 
      	<tr th:each = "runner : ${runners}">
 
-     		<td th:text="${runner.id}"></td>
+     		
+
      		<td th:text="${runner.name}"></td>
      		<td th:text="${runner.team}"></td>
      		<td th:text="${runner.starter.stime}"></td>
@@ -51,9 +55,12 @@
 
      	</tr>
       </table>
-
- 	 <a class="btn btn-success" href="/add"  >Add Runner</a>   
-
+<form th:action="@{/logout}" method="post">
+ 	 &nbsp;&nbsp;<input type="submit" value="Sign Out" class="btn btn-sm btn-secondary"/>
+ 	 </form>
+ <br>
+ <br>
+ <br>
 </div>
  </body>
  </html> 
