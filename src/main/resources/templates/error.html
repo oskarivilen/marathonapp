@@ -15,6 +15,8 @@ body{
   background: #233142;
   
 }
+
+
 .whistle{
   width: 20%;
   fill: #f95959;
@@ -64,6 +66,7 @@ h2{
 <h1>403</h1>
 <h2>Not this time, access forbidden!</h2>
 <h2>Contact staff</h2>
+<h2><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/runnerlist}" style="color:orange;text-decoration: none">Return</a></h2>
 </body>
 </html>
 
