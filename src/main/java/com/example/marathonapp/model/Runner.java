@@ -19,7 +19,7 @@ public class Runner {
 	private long id;
 	private String name;
 	private String team;
-	// test two
+	
 	
 
 	 @ManyToOne
