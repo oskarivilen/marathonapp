@@ -2,6 +2,8 @@ package com.example.marathonapp.model;
 
 import javax.persistence.*;
 
+// Creates user entity
+
 @Entity
 @Table(name = "usertable")
 public class User {

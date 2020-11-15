@@ -16,29 +16,22 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private UserDetailServiceImpl userDetailsService;	
+	@Autowired
+	private UserDetailServiceImpl userDetailsService;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-        .authorizeRequests().antMatchers("/css/**").permitAll() // Enable css when logged out
-        .and()
-        .authorizeRequests().antMatchers("/signup", "/saveuser").permitAll()
-        .and()
-        .authorizeRequests().anyRequest().authenticated()
-        .and()
-      .formLogin()
-          .loginPage("/login")
-          .defaultSuccessUrl("/runnerlist")
-          .permitAll()
-          .and()
-      .logout()
-          .permitAll();
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-    }
+		// Defining secure URL paths
+		http.authorizeRequests().antMatchers("/css/**").permitAll() // Enable css when logged out
+				.and().authorizeRequests().antMatchers("/signup", "/saveuser").permitAll().and().authorizeRequests()
+				.anyRequest().authenticated().and().formLogin().loginPage("/login").defaultSuccessUrl("/runnerlist")
+				.permitAll().and().logout().permitAll();
+	}
+
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		// Encrypts password
+		auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+	}
 }

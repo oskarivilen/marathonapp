@@ -22,6 +22,7 @@ public class UserController {
 	@Autowired
     private UserRepository repository; 
 
+	
     @RequestMapping(value = "signup")
     public String addRunner(Model model){
     	model.addAttribute("signupform", new SignupForm());

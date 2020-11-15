@@ -1,55 +1,70 @@
 <!DOCTYPE HTML>
- <html xmlns:th="http://www.thymeleaf.org">
- <head>
-     <title>Register</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
- </head>
- <body>
-  <br>
- <br>
- <br>
-  <style>
+<!-- This page consists of the UI for addrunner page -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Register</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<br>
+	<br>
+	<br>
+	<style>
 body {
-  background-image: url(https://images.unsplash.com/photo-1603102859961-64b17d43580d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1778&q=80);
-  background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-size: cover;
-  }
-  </style>
-     <div class="d-flex justify-content-center">
-     
-      <div class="col-md-4 col-md-offset-4">
-<div class="jumbotron">
-  <h1 class="display-4">Register</h1>
-  <p class="lead">By creating an account you'll be able to entry to the race.
-  Your account details will not be used anywhere and are secured.</p>
-  
-     <div class="col-md-4">
- 		<form th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
- 			<div>
- 				<label> Username:<input type="text" th:field="*{username}" class="d-flex justify-content-right"/></label>
- 				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
- 			</div>
- 			<div>
- 				<label> Password :<input type="password" th:field="*{password}" class="d-flex justify-content-center"/></label>
- 				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
- 			</div>
- 			<div>
- 				<label> Re-type Password: <input type="password" th:field="*{passwordCheck}" class="d-flex justify-content-center"/></label>
- 				<p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
- 			</div>
+	background-image:
+		url(https://images.unsplash.com/photo-1603102859961-64b17d43580d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1778&q=80);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+</style>
+	<div class="d-flex justify-content-center">
 
- 			<input type="submit" class="btn btn-primary" value="Signup"></input>	
- 			</form>
-</div>
-</div>
- <div class="container">
- 	
- 	</div>
- </div>
- </div>
+		<div class="col-md-4 col-md-offset-4">
+			<div class="jumbotron">
+				<h1 class="display-4">Register</h1>
+				<p class="lead">By creating an account you'll be able to entry
+					to the race. Your account details will not be used anywhere and are
+					secured.</p>
 
- </body>
- </html> 
+				<div class="col-md-4">
+					<form th:object="${signupform}" th:action="@{/saveuser}" action="#"
+						method="post">
+						<div>
+							<label> Username:<input type="text"
+								th:field="*{username}" class="d-flex justify-content-right" /></label>
+							<p th:if="${#fields.hasErrors('username')}"
+								th:errors="*{username}">Username Error</p>
+						</div>
+						<div>
+							<label> Password :<input type="password"
+								th:field="*{password}" class="d-flex justify-content-center" /></label>
+							<p th:if="${#fields.hasErrors('password')}"
+								th:errors="*{password}">Password Error</p>
+						</div>
+						<div>
+							<label> Re-type Password: <input type="password"
+								th:field="*{passwordCheck}"
+								class="d-flex justify-content-center" /></label>
+							<p th:if="${#fields.hasErrors('passwordCheck')}"
+								th:errors="*{passwordCheck}">Password Match Error</p>
+						</div>
+
+						<input type="submit" class="btn btn-primary" value="Signup"></input>
+					</form>
+				</div>
+			</div>
+			<div class="container"></div>
+		</div>
+	</div>
+
+</body>
+</html>

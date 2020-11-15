@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-
+// Creation of starting time entity
 
 @Entity
 public class Starter {

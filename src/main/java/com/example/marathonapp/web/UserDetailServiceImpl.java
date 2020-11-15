@@ -11,7 +11,7 @@ import com.example.marathonapp.model.User;
 import com.example.marathonapp.model.UserRepository;
 
 
-
+// Using to authenticate and authorize user
 
 @Service
 public class UserDetailServiceImpl implements UserDetailsService  {
