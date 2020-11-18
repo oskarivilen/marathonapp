@@ -30,6 +30,7 @@ public class MarathonappRepositoryTest {
        assertThat(runners.get(0).getTeam()).isEqualTo("Helsinki RC");
    }
    
+   // Test if app can create new Runner
    @Test
    public void createNewRunner() {
    	Runner runner = new Runner(9, "Oskari Vilen", "Helsinki RC", new Starter("16:00"));
@@ -37,6 +38,7 @@ public class MarathonappRepositoryTest {
    	assertThat(runner.getId()).isNotNull();
    }    
    
+   // Test if app can delete Runner
    @Test
    public void deleteRunner() {
    	Runner runner = new Runner(9, "Oskari Vilen", "Helsinki RC", new Starter("16:00"));
